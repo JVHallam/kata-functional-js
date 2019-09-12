@@ -1,0 +1,32 @@
+{
+  "name": "kata-functional-js",
+  "version": "1.0.0",
+  "description": "A little set of practise exercises to allow me to practise some functional programming practises in javascript.",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest",
+    "setup": "node scripts/setup.js",
+    "cleanup": "node scripts/cleanup.js",
+    "utility": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JVHallam/kata-functional-js.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JVHallam/kata-functional-js/issues"
+  },
+  "homepage": "https://github.com/JVHallam/kata-functional-js#readme",
+  "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-jest": "^24.9.0"
+  }
+}
