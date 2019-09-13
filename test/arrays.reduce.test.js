@@ -61,16 +61,72 @@ describe("Library can implement reduce", () => {
   });
   
   it("Test how it handles a two item array", () => {
+    const firstValue = 1;
+    const secondValue = 2;
+    const testArray = [ firstValue, secondValue ];
 
+    const callback = ( a, x ) => {
+      expect( a ).toBe( firstValue );
+      expect( x ).toBe( secondValue );
+      return a + x;
+    };
+
+    const mockCallback = jest.fn( callback );
+
+    const expectedResult = firstValue + secondValue;
+    const actualResult = reduce( testArray, mockCallback );
+
+    expect( mockCallback.mock.calls.length ).toBe( 1 );
+    expect( actualResult ).toBe( expectedResult );
   });
 
   it("Test how it handles a two item array with an initial Value",  () => {
+    const firstValue = 1;
+    const secondValue = 2;
+    const initialValue = 3;
+    const testArray = [ firstValue, secondValue ];
 
+    const callback = ( a, x ) => {
+      return a + x;
+    };
+
+    const mockCallback = jest.fn( callback );
+
+    const expectedResult = firstValue + secondValue + initialValue;
+    const actualResult = reduce( testArray, mockCallback, initialValue );
+
+    expect( actualResult ).toBe( expectedResult );
+    expect( mockCallback.mock.calls.length ).toBe( 2 );
   });
 
   it("Test how it handles a three item array", () => {
+    const testArray = [ 1, 2, 3 ];
 
+    const callback = ( a, x ) => {
+      return a + x;
+    };
+
+    const mockCallback = jest.fn( callback );
+
+    const expectedResult = testArray.reduce( callback );
+    const actualResult = reduce( testArray, mockCallback );
+
+    expect( actualResult ).toBe( expectedResult );
+    expect( mockCallback.mock.calls.length ).toBe( testArray.length - 1 );
+  });
+  
+  it("Test that it's correctly handling index", () => {
+    const testArray = [...Array(10)].map( (_, index) => index * 2 );
+
+    const mockCallback = jest.fn( ( a, x ) => a + x );
+
+    const output = reduce( testArray, mockCallback );
+    
+    //Expecting 9 calls to reduce 10 values
+    const expectedIndex = [...Array(9)].map( ( _, index ) => index );
+    const onlyIndexFromCalls = mockCallback.mock.calls.map( ([a,x,index]) => index );
+  
+    expect( onlyIndexFromCalls ).toEqual( expectedIndex );
+    expect( mockCallback.mock.calls.length ).toBe( expectedIndex.length );
   });
 });
-
-

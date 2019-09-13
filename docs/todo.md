@@ -1,12 +1,10 @@
 # Styles of tests to implement:
 
 * recursion and loops
-  * creating a while loop to map an array
-  * Creating a recursive function to create an array
   * Implementing Array functions
-    * Map
     * filter
     * reduce
+  * Creating a recursive function to create an array, this could be fun
 * generators
   * this is my version of the functional generator, not the actual ES6 generator
   * creating a generator that increments
