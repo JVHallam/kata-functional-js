@@ -1,6 +1,4 @@
 # Styles of tests to implement:
-* test files:
-  * split map, reduce and filter down into their own file
 
 * recursion and loops
   * creating a while loop to map an array
