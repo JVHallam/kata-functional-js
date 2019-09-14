@@ -27,11 +27,19 @@ describe("Library can implement reduce", () => {
   });
 
   it("The callback is called the expected number of times, without a starting value", () => {
+    const mockCallback = jest.fn( (a, x) => a + x );
+    const testArray = [...Array(10)].map( (_, index) => index );
 
+    reduce( testArray, mockCallback );
+    expect( mockCallback.mock.calls.length ).toBe( testArray.length - 1 );
   });
 
   it("The callback is called the expected number of times, when there is a starting value", () => {
+    const mockCallback = jest.fn( (a, x) => a + x );
+    const testArray = [...Array(10)].map( (_, index) => index );
 
+    reduce( testArray, mockCallback, 0 );
+    expect( mockCallback.mock.calls.length ).toBe( testArray.length );
   });
 
   it("Test how it handles a one item array", () => {
