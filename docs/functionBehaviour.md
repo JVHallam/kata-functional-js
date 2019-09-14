@@ -30,3 +30,24 @@ Returns an array that contains all of the values of the first array, after they'
 ## specific behaviours:
 * When the reduce function is called, with no initial value, the first value of the array becomes the initial value
 * When there's only one item in the initial array, with no intial value, callback is called but x = undefined
+
+# Filter
+## Parameters:
+* Array
+* callback that returns a truthy value
+  * current value, index
+* index - the starting index of this sub arrays starting position in the original array
+
+## Returns
+* A new, array, with only the filtered values.
+
+## Expected beheviour
+The function will
+* Call the callback on each value in the array
+* If the callback returns a truthy value, that value will go into the new array
+* If the callback returns a falsy value, that value won't go into the new array
+
+## specific behaviours
+* The array returned must be a new array
+* the state of the original array must not be mutated
+* The callback is called on each element in the array, once, and no more
