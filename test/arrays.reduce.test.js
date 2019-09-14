@@ -1,9 +1,8 @@
 import { reduce } from "../index.js";
 
-/*
-  * Check that the function does not mutate the original array
-  * Check that the function keeps track of the index value
-*/
+//Utility functions
+const and = ( a, x ) => a && x;
+
 describe("Library can implement reduce", () => {
   it("Checking that the reduce function is imported", () => {
     expect( reduce ).toBeDefined();
@@ -26,12 +25,45 @@ describe("Library can implement reduce", () => {
     expect( actualResult ).toBe( expectedResult );
   });
 
+  it("The function doesn't mutate the original state of the original array", () => {
+    const originalArray = [...Array(50)].map( (_, index) => index % 2 == 0 );
+    const testArray = [...originalArray];
+
+    // Testing without an initial Value
+    reduce( testArray, and );
+    expect( testArray ).toEqual( originalArray );
+
+    // Testing with an initial Value
+    reduce( testArray, and, true );
+    expect( testArray ).toEqual( originalArray );
+  });
+
   it("The callback is called the expected number of times, without a starting value", () => {
     const mockCallback = jest.fn( (a, x) => a + x );
     const testArray = [...Array(10)].map( (_, index) => index );
 
     reduce( testArray, mockCallback );
     expect( mockCallback.mock.calls.length ).toBe( testArray.length - 1 );
+  });
+
+  /*
+    I had issues in the past when doing
+      if( intialValue ), as initalValue can be a falsy value, whilst still being valid.
+      If intialValue is false, or 0, then if( initialValue ), wont execute, which
+      i need it to.
+
+      Make sure to use if( intialValue != undefined ), instead.
+  */
+  it("The function uses the initial value even when they're falsy values", () => {
+    const array = [ true, true, true ];
+    const result = reduce( array, and, false ); 
+    expect( result ).toBe( false );
+  });
+
+  it("The function does not use the initial value when it's undefined", () => {
+    const array = [ true, true, true ];
+    const result = reduce( array, and );
+    expect( result ).toBe( true );
   });
 
   it("The callback is called the expected number of times, when there is a starting value", () => {
