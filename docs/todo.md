@@ -1,10 +1,7 @@
 # Styles of tests to implement:
 
 * recursion and loops
-  * Implementing Array functions
-    * filter
-    * reduce
-  * Creating a recursive function to create an array, this could be fun
+  * Check that they don't call the callback when given an EMPTY array, with no callback
 * generators
   * this is my version of the functional generator, not the actual ES6 generator
   * creating a generator that increments

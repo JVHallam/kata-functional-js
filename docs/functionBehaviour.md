@@ -9,6 +9,9 @@ I'm just outlining some of them here.
 * callback
   * currentValue
   * index - The index of the current value, into the original array
+ 
+* index
+  * the index of the current value, into it's sub array
 
 ## Returns
 Returns an array that contains all of the values of the first array, after they've been passed through the callback.
