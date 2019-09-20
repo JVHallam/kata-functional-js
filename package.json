@@ -9,8 +9,9 @@
   },
   "scripts": {
     "test": "jest",
-    "setup": "node scripts/setup.js",
-    "cleanup": "node scripts/cleanup.js",
+    "setup": "kata-scripts setup",
+    "cleanup": "kata-scripts cleanup",
+    "kata" : "kata-scripts",
     "utility": "webpack-dev-server"
   },
   "repository": {
@@ -27,6 +28,13 @@
   "dependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "babel-jest": "^24.9.0"
+    "babel-jest": "^24.9.0",
+    "kata-scripts": "^1.0.0"
+  },
+  "config" : {
+    "kata" : {
+      "exec_area_path" : "practise",
+      "resources_path" : "./src/templates"
+    }
   }
 }

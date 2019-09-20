@@ -1,5 +1,4 @@
 # Styles of tests to implement:
-
 * generators
   * this is my version of the functional generator, not the actual ES6 generator
   * creating a generator that increments
