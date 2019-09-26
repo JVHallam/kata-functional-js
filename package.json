@@ -1,5 +1,5 @@
 {
-  "name": "kata-functional-js",
+  "name": "kata-javascript-functional-arrays",
   "version": "1.0.0",
   "description": "A little set of practise exercises to allow me to practise some functional programming practises in javascript.",
   "main": "index.js",
@@ -11,7 +11,7 @@
     "test": "jest",
     "setup": "kata-scripts setup",
     "cleanup": "kata-scripts cleanup",
-    "kata" : "kata-scripts",
+    "kata": "kata-scripts",
     "utility": "webpack-dev-server"
   },
   "repository": {
@@ -31,10 +31,10 @@
     "babel-jest": "^24.9.0",
     "kata-scripts": "^1.0.0"
   },
-  "config" : {
-    "kata" : {
-      "exec_area_path" : "practise",
-      "resources_path" : "./src/templates"
+  "config": {
+    "kata": {
+      "exec_area_path": "practise",
+      "resources_path": "./src/templates"
     }
   }
 }
